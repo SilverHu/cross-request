@@ -265,7 +265,8 @@ function sendAjaxByContent(req, successFn, errorFn) {
             req.data = document.getElementById(req.file).files[0];
         }
     }else{
-      delete req.headers['Content-Type'];
+      // GET请求时也可以改变Content-Type，签名需要
+      // delete req.headers['Content-Type'];
     }
     if (req.query && typeof req.query === 'object') {
         var getUrl = formUrlencode(req.query);
